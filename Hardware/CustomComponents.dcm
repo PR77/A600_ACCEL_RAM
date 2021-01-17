@@ -1,0 +1,15 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP CY62167G
+D 1024k x 16 bit low power CMOS SRAM
+K memory SRAM
+F http://www.alliancememory.com/pdf/AS6C1616(1).pdf
+$ENDCMP
+#
+$CMP MC68SEC000FN
+D Microprocessor, 16-bit bus
+K MPRO
+F https://www.nxp.com/docs/en/product-brief/MC68SEC000.pdf
+$ENDCMP
+#
+#End Doc Library

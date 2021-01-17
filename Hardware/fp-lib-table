@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name A600_ACCEL_RAM)(type KiCad)(uri C:/Users/Paul/Documents/Amiga/A600_ACCEL_RAM/Rev1/Hardware/A600_ACCEL_RAM)(options "")(descr ""))
+)

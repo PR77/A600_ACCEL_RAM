@@ -1,0 +1,25 @@
+G04 #@! TF.GenerationSoftware,KiCad,Pcbnew,(5.0.1)-rc2*
+G04 #@! TF.CreationDate,2020-12-06T20:15:16+01:00*
+G04 #@! TF.ProjectId,A600_ACCEL_RAM,413630305F414343454C5F52414D2E6B,rev?*
+G04 #@! TF.SameCoordinates,Original*
+G04 #@! TF.FileFunction,Paste,Bot*
+G04 #@! TF.FilePolarity,Positive*
+%FSLAX46Y46*%
+G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
+G04 Created by KiCad (PCBNEW (5.0.1)-rc2) date 06/12/2020 20:15:16*
+%MOMM*%
+%LPD*%
+G01*
+G04 APERTURE LIST*
+%ADD10R,1.000000X1.250000*%
+G04 APERTURE END LIST*
+D10*
+G04 #@! TO.C,C3*
+X81296000Y-117205000D03*
+X83296000Y-117205000D03*
+G04 #@! TD*
+G04 #@! TO.C,C4*
+X65294000Y-100965000D03*
+X67294000Y-100965000D03*
+G04 #@! TD*
+M02*

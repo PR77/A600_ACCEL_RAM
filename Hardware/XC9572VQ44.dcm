@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP XC9572VQ44
+D Xilinx CPLD
+F xilinx/xc9572.pdf
+$ENDCMP
+#
+#End Doc Library
