@@ -309,7 +309,8 @@ always @(negedge CLK_7 or posedge DTACK_7) begin : DTACK_DOMAIN_SYNC
     end else begin
     
         r_slowCPU_DTACK_n[0] <= DTACK_7;
-        r_slowCPU_DTACK_n[1] <= r_slowCPU_DTACK_n[0];
+        r_slowCPU_DTACK_n[1] <= r_slowCPU_DTACK_n[0];   // 40MHz
+        //r_slowCPU_DTACK_n[1] <= DTACK_7;              // 30MHz  
     end
 end
 
