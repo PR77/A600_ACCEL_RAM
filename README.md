@@ -14,7 +14,9 @@ Nice 3D model:
 Installed on A600 Motherboard:
 ![Actual Hardware](/Images/Actual_Hardware.jpg)
 
-Mounting holes on the Accelerator PCB match with the HDD cradle and accommodate a M2 screw to provide stress relief for the PLCC68 socket.
+Mounting holes on the Accelerator PCB match with the HDD cradle and accommodate a M2 screw to provide stress relief for the PLCC68 socket. SukkoPera has a great guide on how to prepare the PLCC68 socket as some small modifications are required. His how to guide is linked here;
+
+https://github.com/SukkoPera/OpenAmiga600FastRamExpansion/blob/master/SocketRework.md
 
 ### Performance
 Testing has shown that the A600 system is fairly stable at 40MHz. Slower crystals can be used if stability is an issue (let me know if you run into issues). I've had the classic Amiga Juggler running for 48 Hours without any issues. Classic SysInfo shows @ 40MHz (with MapROM active);
