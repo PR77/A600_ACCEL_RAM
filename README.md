@@ -84,4 +84,6 @@ To simplify the design and keep the CPLD pin count down, I decided not to use tr
 ### MapROM
 Of the 2MB RAM available, 1.5MB is allocated to SlowRAM and the remainder is allocated for MapROM. MapROM simply works by routing write cycle to 0xF8xxxx directly to the Accelerators RAM. Once enough write cycles are detected (262144 WORD writes), the MapROM write status is latched. After a subsequent Reset, memory accesses to 0xF8xxxx are directly routed to the Accelerators RAM (at full speed) and /AS is not asserted on the Amiga.
 
+To deactive MapROM, simple hold down CTRL-A-A for 1 second and it will be deactivated. A different image could then be loaded. Note, once an image is loaded it needs to be deactivated again before a different image can be used.
+
 
