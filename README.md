@@ -21,7 +21,7 @@ https://github.com/SukkoPera/OpenAmiga600FastRamExpansion/blob/master/SocketRewo
 ### Performance
 Testing has shown that the A600 system is fairly stable at 40MHz. Slower crystals can be used if stability is an issue (let me know if you run into issues). I've had the classic Amiga Juggler running for 48 Hours without any issues. Classic SysInfo shows @ 40MHz (with MapROM active);
 
-* Drystones: 3447
+* Drystones: 3448
 * MIPS: 3.59
 * Comment: Only Amiga Makes.. 
 
@@ -79,11 +79,11 @@ https://www.ebay.de/itm/MC68SEC000FU20-IC-MPU-M680X0-20MHZ-64QFP-NEW/31152497060
 * MAPROM ACTIVE: After writing a 512K MapROM image to the Accelerator, the next subsequent Reset will active this image. This LED indicates that the MapROM image is in use.
 
 ### FastRAM (... or is it SlowRAM)
-To simplify the design and keep the CPLD pin count down, I decided not to use traditional FastRAM, rather use SlowRAM which is automatically mapped by the Amiga is valid memory is detected between 0xC00000 - 0xD7FFFF. In this range 1.5MB is available. For this memory range, the Accelerator performs the address decoding and subsequent /DTACK cycle. /AS is not asserted on the Amiga, thus the speed of memory cycles in this range is equivalent to that of FastRAM.
+To simplify the design and keep the CPLD pin count down, I decided not to use traditional FastRAM, rather use SlowRAM which is automatically mapped by the Amiga if valid memory is detected between 0xC00000 - 0xD7FFFF. In this range 1.5MB is available. In this memory range, the Accelerator performs the address decoding and subsequent /DTACK cycle. /AS is not asserted on the Amiga, thus the speed of memory cycles in this range is equivalent to that of FastRAM.
 
 ### MapROM
 Of the 2MB RAM available, 1.5MB is allocated to SlowRAM and the remainder is allocated for MapROM. MapROM simply works by routing write cycle to 0xF8xxxx directly to the Accelerators RAM. Once enough write cycles are detected (262144 WORD writes), the MapROM write status is latched. After a subsequent Reset, memory accesses to 0xF8xxxx are directly routed to the Accelerators RAM (at full speed) and /AS is not asserted on the Amiga.
 
-To deactive MapROM, simple hold down CTRL-A-A for 1 second and it will be deactivated. A different image could then be loaded. Note, once an image is loaded it needs to be deactivated again before a different image can be used.
+To deactive MapROM, simply hold down CTRL-A-A for 1 second and it will be deactivated. A different image could then be loaded. Note, once an image is loaded it needs to be deactivated again before a different image can be used. DiagROM images could also be used - helpful to avoid swapping out the physical ROM chip.
 
 
