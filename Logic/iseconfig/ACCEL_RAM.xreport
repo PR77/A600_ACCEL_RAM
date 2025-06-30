@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2021-01-14T20:51:58</DateModified>
+  <DateModified>2025-06-30T21:18:35</DateModified>
   <ModuleName>ACCEL_RAM</ModuleName>
-  <SummaryTimeStamp>2021-01-07T13:09:07</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/Paul/Documents/Amiga/A600_ACCEL_RAM/Rev1/Logic/iseconfig/ACCEL_RAM.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Paul/Documents/Amiga/A600_ACCEL_RAM/Rev1/Logic\</ImplementationReportsDirectory>
+  <SummaryTimeStamp>2025-06-30T21:18:22</SummaryTimeStamp>
+  <SavedFilePath>C:/Users/pcras/Documents/GitHub/A600_ACCEL_RAM/Logic/iseconfig/ACCEL_RAM.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/pcras/Documents/GitHub/A600_ACCEL_RAM/Logic\</ImplementationReportsDirectory>
   <DateInitialized>2020-09-20T13:40:34</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

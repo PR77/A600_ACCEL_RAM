@@ -1,2 +1,37 @@
+Logic/_ngo/*
+Logic/_xmsgs/*
+Logic/fit/*
+Logic/ACCEL_RAM_html/*
+Logic/xlnx_auto_0_xdb/*
+Logic/iseconfig/*.xreport
+Logic/xst/*
+Logic/*.bld
+Logic/*.cmd_log
+Logic/*.gyd
+Logic/*.lso
+Logic/*.mfd
+Logic/*.nga
+Logic/*.ngc
+Logic/*.ngd
+Logic/*.ngr
+Logic/*.pad
+Logic/*.pns
+Logic/*.rpt
+Logic/*.stx
+Logic/*.pnx
+Logic/*.syr
+Logic/*.vm6
+Logic/*.xml
+Logic/*.xst
+Logic/*.html
+Logic/*.xrpt
+Logic/*.xsl
+Logic/*.xwbt
+Logic/*.csv
+Logic/*.err
+Logic/*.log
+Logic/output.jed
+
+
 
 
