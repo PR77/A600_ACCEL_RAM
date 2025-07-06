@@ -30,6 +30,9 @@ Logic/*.xwbt
 Logic/*.csv
 Logic/*.err
 Logic/*.log
+Logic/*.tim
+Logic/*.tspec
+Logic/*.prj
 Logic/output.jed
 
 
