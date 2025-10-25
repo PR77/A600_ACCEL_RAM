@@ -23,6 +23,8 @@
     Updated for revised PCB layout.
 */
 
+`define FASTRAM_ACCESS_1WS
+
 module ACCEL_RAM(
 
     // CPU
@@ -214,64 +216,65 @@ always @(negedge CLK_ACCEL or posedge AS_ACCEL) begin : RAM_CONTROL
 
         case (r_stRAMControl)
 
-            2'b00: begin
-                if (SLOWRAM_RANGE == 1'b1) begin
-                    r_RAM_CE_n <= 1'b0;
-                    r_stRAMControl <= 2'b01;
-                end
-                
-                if (MAPROM_RANGE == 1'b1) begin
-                    r_RAM_CE_n <= 1'b0;
-                    r_stRAMControl <= 2'b10;
-                end
+        2'b00: begin
+            if (SLOWRAM_RANGE == 1'b1) begin
+                r_RAM_CE_n <= 1'b0;
+                r_stRAMControl <= 2'b01;
             end
 
-            2'b01: begin
-                // Read & Write Cycle for SLOW RAM space
-                if (LDS == 1'b0 || UDS == 1'b0) begin
-                    r_RAM_OE_n <= (RW) ? 1'b0 : 1'b1;
-                    r_RAM_LB_n <= LDS;
-                    r_RAM_UB_n <= UDS;
-                    r_RAM_WR_n <= (!RW) ? 1'b0 : 1'b1;
-                    
-                    //r_stRAMControl <= 2'b11;
-                    
+            if (MAPROM_RANGE == 1'b1) begin
+                r_RAM_CE_n <= 1'b0;
+                r_stRAMControl <= 2'b10;
+            end
+        end
+
+        2'b01: begin
+            // Read & Write Cycle for SLOW RAM space
+            if (LDS == 1'b0 || UDS == 1'b0) begin
+                r_RAM_OE_n <= (RW) ? 1'b0 : 1'b1;
+                r_RAM_LB_n <= LDS;
+                r_RAM_UB_n <= UDS;
+                r_RAM_WR_n <= (!RW) ? 1'b0 : 1'b1;
+
+                `ifdef FASTRAM_ACCESS_1WS 
+                    r_stRAMControl <= 2'b11;
+                `else
                     // acknowledge RAM cycle complete directly to improve performance
-                    
                     r_stRAMControl <= 2'b00;
                     r_RAMCycleComplete <= 1'b1;
-
-                end
+                `endif
             end
-            
-            2'b10: begin
-                // Read & Write Cycle for MAPROM space
-                if (LDS == 1'b0 || UDS == 1'b0) begin
-                    r_RAM_OE_n <= (RW && r_mapROMEnabled) ? 1'b0 : 1'b1;
-                    r_RAM_LB_n <= LDS;
-                    r_RAM_UB_n <= UDS;
-                    r_RAM_WR_n <= (!RW && !r_mapROMWritten) ? 1'b0 : 1'b1;
+        end
 
-                    //r_stRAMControl <= 2'b11;
-                    
+        2'b10: begin
+            // Read & Write Cycle for MAPROM space
+            if (LDS == 1'b0 || UDS == 1'b0) begin
+                r_RAM_OE_n <= (RW && r_mapROMEnabled) ? 1'b0 : 1'b1;
+                r_RAM_LB_n <= LDS;
+                r_RAM_UB_n <= UDS;
+                r_RAM_WR_n <= (!RW && !r_mapROMWritten) ? 1'b0 : 1'b1;
+
+                `ifdef FASTRAM_ACCESS_1WS 
+                    r_stRAMControl <= 2'b11;
+                `else
                     // acknowledge RAM cycle complete directly to improve performance
-                    
                     r_stRAMControl <= 2'b00;
                     r_RAMCycleComplete <= 1'b1;
-
-                end
+                `endif
             end
+        end
 
-            2'b11: begin
-                // DTACK Cycle
-                r_RAMCycleComplete <= 1'b1;
-            end
-            
-            default:
-                r_stRAMControl <= 2'b00;
-        
+        2'b11: begin
+            // DTACK Cycle
+            r_stRAMControl <= 2'b00;
+            r_RAMCycleComplete <= 1'b1;
+        end
+
+        default:
+            r_stRAMControl <= 2'b00;
+
         endcase
-    end
+        end
 end
 
 // Assign directly _A2 to A2. Address line A2 for the RAM is routed through the CPLD for
